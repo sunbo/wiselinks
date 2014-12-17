@@ -11,7 +11,8 @@ class Link
     else
       'template'
 
-    @page.load(@$link.attr("href"), @$link.data('target'), type)
+    url = @$link.data('url') || @$link.attr("href")
+    @page.load(url, @$link.data('target'), type)
 
   _cross_origin_link: (link) ->
     this._different_protocol(link) ||
